@@ -18,7 +18,10 @@ app.get('/download', async (req, res) => {
       requestOptions: {
         headers: {
           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-        }
+        },
+        // 추가: 재시도 및 타임아웃 설정
+        maxRetries: 3,
+        timeout: 10000 // 10초 타임아웃
       }
     });
     console.log('영상 정보 가져옴:', info.videoDetails.title);
@@ -29,7 +32,9 @@ app.get('/download', async (req, res) => {
       requestOptions: {
         headers: {
           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-        }
+        },
+        maxRetries: 3,
+        timeout: 10000
       }
     });
     res.header('Content-Disposition', `attachment; filename="${title}.${format}"`);
