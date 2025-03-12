@@ -7,6 +7,6 @@
     },
     "dependencies": {
       "express": "^4.17.1",
-      "ytdl-core": "^4.10.0"
+      "ytdl-core": "^4.11.5"
     }
   }
